@@ -1,0 +1,182 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+typedef struct TNODE *BinTree;
+struct TNODE{
+        int Data;
+        BinTree Left;
+        BinTree Right;
+};
+
+
+void Preorder(BinTree BT);
+void Inorder(BinTree BT);
+
+BinTree Insert(BinTree BST, int X);
+BinTree Delete(BinTree BST, int X);
+BinTree Find(BinTree BST, int X);
+BinTree FindMin(BinTree BST);
+BinTree FindMax(BinTree BST);
+
+
+
+int main()
+{
+    BinTree BST=NULL,MinP,MaxP,Tmp;
+    int X;
+    int N,i;
+    printf("The Number Of data:");
+    scanf("%d",&N);
+    printf("Input Data:");
+    for(i = 0; i<N; i++){
+        scanf("%d",&X);
+        BST = Insert(BST,X);
+    }
+    printf("Preordder:");
+    Preorder(BST);
+    printf("\n");
+
+    MinP = FindMin(BST);
+    MaxP = FindMax(BST);
+
+    printf("The Number of Data You Want to Search:");
+    scanf("%d",&N);   
+    printf("Input Data:");
+    for(i = 0; i<N; i++){
+        scanf("%d",&X);
+        Tmp = Find(BST,X);
+
+        if(!Tmp)
+            printf("%d is not found\n ",X);
+        else{
+            printf("%d is found\n",Tmp->Data);
+                if(Tmp == MinP) 
+                    printf("%d is the smallest key!\n",Tmp->Data);
+                if(Tmp == MaxP)
+                    printf("%d is the largest key!\n",Tmp->Data);
+
+        }
+    }
+
+    printf("The number Of Data You want to delete:");
+    scanf("%d",&X);
+    printf("Input Data:");
+
+    for(i = 0; i<N; i++){
+        scanf("%d",&X);
+        BST = Delete(BST,X); 
+    }
+    printf("Inorder:");
+    Inorder(BST);
+    printf("\n");
+
+    return 0;
+
+}
+
+
+BinTree Insert(BinTree BST,int X){
+    if(!BST)
+    {
+        BST = (BinTree)malloc(sizeof(struct TNODE));
+        BST->Data = X;
+        BST->Left = BST->Right =NULL;
+    }
+    else
+    {
+        if(X < BST->Data){
+            BST->Left = Insert(BST->Left,X);//递归插入左子树
+        }
+        else if(X > BST->Data){
+            BST->Right = Insert(BST->Right,X);//递归插入右子树
+        }
+    }
+    return BST;
+    
+}
+
+
+BinTree Find(BinTree BST,int X){
+    while(BST)
+    {
+        if(X > BST->Data)
+            BST = BST->Right;
+        else if(X < BST->Data)
+            BST = BST->Left;
+        else
+            return BST;
+    }
+    return NULL;
+}
+
+
+
+BinTree FindMin(BinTree BST){
+    while(BST)
+    {
+        if(!BST->Left)
+            return BST;
+        else
+            BST = BST->Left;
+    }
+    return NULL;
+}
+BinTree FindMax(BinTree BST){
+    while(BST)
+    {
+        if(!BST->Right)
+            return BST;
+        else
+            BST = BST->Right;
+    }
+    return NULL;
+}
+
+BinTree Delete(BinTree BST,int X){
+    BinTree Tmp;
+    if(!BST)
+        printf("Not Found\n");
+    else if(X < BST->Data)
+        BST->Left = Delete(BST->Left,X);//递归删除左子树
+    else if(X > BST->Data)
+        BST->Right = Delete(BST->Right,X);//递归删除右子树
+    else{
+        //如果被删除节点有子树，寻找下一个节点填充删除节点
+        if(BST->Left && BST->Right){
+            Tmp = FindMin(BST->Right);//在被删除节点的右子树中找最小元素填充删除节点
+            BST->Data = Tmp->Data;
+            BST->Right = Delete(BST->Right,BST->Data);//递归删除右子树最大值
+        }
+        else{
+            //如果被删除节点有一个或者没有儿子
+            Tmp = BST;
+            if(!BST->Left)
+                BST = BST->Right;//如果这个子树没有左儿子，将右儿子的指针赋给它，Free它
+            else if(!BST->Right)
+                BST = BST->Left;//同上
+        free(Tmp);              //已经包含有一个子树
+        }
+    }
+    return BST;
+}
+
+
+void Preorder(BinTree BT){
+    if(!BT)
+        return;
+    else{
+    printf("%d\t",BT->Data);
+    Preorder(BT->Left);
+    Preorder(BT->Right);
+}
+}
+
+void Inorder(BinTree BT){
+    if(!BT)
+        return;
+    else{
+        Inorder(BT->Left);
+        printf("%d\t",BT->Data);
+        Inorder(BT->Right);
+    }
+}
