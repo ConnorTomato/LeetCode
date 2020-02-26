@@ -22,3 +22,18 @@ class Solution {
 }
 
 Ⅱ.递归
+class Solution {
+    public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> result = new LinkedList<>();
+        dfs(result,root);
+        return result;
+    }
+    public void dfs(List<Integer> result, TreeNode root){
+        if(root == null)
+            return;
+        dfs(result,root.left);
+        result.add(root.val);
+        dfs(result,root.right);
+        
+    }
+}
