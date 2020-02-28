@@ -30,3 +30,19 @@ class Solution {
         return Math.max(leftH, rightH);
     }
 }
+Ⅱ.
+    class Solution {
+    public boolean isBalanced(TreeNode root) {
+        return treeHeight(root) >= 0;
+    }
+    public int treeHeight(TreeNode root){
+        if(root == null) 
+            return 0;
+        int leftHeight = treeHeight(root.left);
+        int rightHeight = treeHeight(root.right);
+        if(leftHeight >= 0 && rightHeight >= 0 &&Math.abs(leftHeight - rightHeight) <=1)
+            return Math.max(leftHeight,rightHeight) + 1;
+        else
+            return -1;        
+    }
+}
