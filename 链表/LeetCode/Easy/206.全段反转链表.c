@@ -67,3 +67,15 @@ class Solution {
         return pre;
     }
 }
+Ⅲ.Java递归
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        if(head == null ||head.next == null)
+            return head;
+        ListNode tmp = reverseList(head.next);
+        head.next.next = head;
+        head.next = null;
+        return tmp;
+    }
+}
+    
