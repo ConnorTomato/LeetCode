@@ -1,3 +1,4 @@
+Ⅰ.C
 #include<stdio.h>
 #include<stdlib.h>
 struct ListNode{
@@ -51,4 +52,18 @@ int main(){
     printf("\n");
     head = reverseList(head);
     Print(head);
+}
+Ⅱ.java迭代
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        ListNode pre = null;
+        ListNode cur = head;
+        while( cur != null){
+            ListNode next = cur.next;
+                cur.next = pre;
+                pre = cur;
+                cur = next;
+        }
+        return pre;
+    }
 }
