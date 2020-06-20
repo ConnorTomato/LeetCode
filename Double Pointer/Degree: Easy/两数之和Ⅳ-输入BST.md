@@ -1,1 +1,2 @@
-[两数之和Ⅳ-输入BST]([https://github.com/ConnorTomato/Data-Structure/blob/master/%E4%BA%8C%E5%8F%89%E6%A0%91/LeetCode/%E9%9A%BE%E5%BA%A6%EF%BC%9A%E7%AE%80%E5%8D%95/653.%20%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C%20IV%20-%20%E8%BE%93%E5%85%A5%20BST.md](https://github.com/ConnorTomato/Data-Structure/blob/master/二叉树/LeetCode/难度：简单/653. 两数之和 IV - 输入 BST.md))
+
+[两数之和Ⅳ-输入BST](./两数之和Ⅳ-输入BST)
