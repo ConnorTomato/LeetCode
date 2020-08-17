@@ -54,8 +54,10 @@ class Solution {
                 return true;
             int leftH = treeH(root.left);
             int rightH = treeH(root.right);
+            //对根节点判读如果不平衡，不用检查子树了，直接返回false
             if(Math.abs(leftH - rightH) > 1)
                 return false;
+            //上面通过，继续递归检查子树是否平衡
             return isBalanced(root.left) && isBalanced(root.right);
             
     }
