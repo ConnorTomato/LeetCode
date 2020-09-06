@@ -1,25 +1,22 @@
 class Solution {
     public List<List<Integer>> levelOrderBottom(TreeNode root) {
-        LinkedList<List<Integer>> result = new LinkedList<>();
-        if (root == null)
-            return result;
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.add(root);
-        while (!queue.isEmpty()) {
-            List<Integer> oneLevel = new ArrayList<>();
-            // 每次都取出一层的所有数据
-            int count = queue.size();
-            for (int i = 0; i < count; i++) {
-                TreeNode node = queue.poll();
-                oneLevel.add(node.val);
-                if (node.left != null)
-                    queue.add(node.left);
-                if (node.right != null)
-                    queue.add(node.right);
-            }
-            // 每次都往队头塞
-            result.addFirst(oneLevel);
+        if(root == null){
+            return Collections.emptyList();
         }
-        return result;
+        List<List<Integer>> res = new ArrayList<>();
+        Deque<TreeNode>  queue = new ArrayDeque<>();
+        queue.add(root);
+        while(!queue.isEmpty()){
+            int size = queue.size();
+            List<Integer> temp = new ArrayList<>();
+            for(int i = 0; i < size; i++){
+                TreeNode node = queue.poll();
+                temp.add(node.val);
+                if(node.left != null) queue.add(node.left);
+                if(node.right != null) queue.add(node.right);
+            }
+            res.add(0,temp);
+        }
+        return res;
     }
 }
