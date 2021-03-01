@@ -1,4 +1,6 @@
-> - `preSum[-1] = 0, sumRange[i,j] = preSum[j] - preSum[i - 1]`
+> - 前缀和公式
+>
+>   `preSum[-1] = 0, sumRange[i,j] = preSum[j] - preSum[i - 1]`
 >
 >   `preSum[0] = 0, sumRange[i,j] = preSum[j + 1] - preSum[i]`
 
