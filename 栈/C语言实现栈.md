@@ -1,3 +1,6 @@
+- C语言实现栈
+
+```c
 #include<stdio.h>
 #include<stdlib.h>
 typedef struct node* Node;
@@ -96,3 +99,6 @@ int main(){
     Print(s);
     return 0;
 }
+
+```
+
