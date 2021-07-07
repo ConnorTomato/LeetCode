@@ -11,3 +11,4 @@
 #### [1074. 元素和为目标值的子矩阵数量](https://leetcode-cn.com/problems/number-of-submatrices-that-sum-to-target/)
 
 #### [525. 连续数组](https://leetcode-cn.com/problems/contiguous-array/)
+#### [974. 和可被 K 整除的子数组](https://leetcode-cn.com/problems/subarray-sums-divisible-by-k/)
