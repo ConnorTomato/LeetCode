@@ -1,4 +1,4 @@
-# 数据结构库
+# LeetCode 题解
 - [数组](https://github.com/ConnorTomato/Data-Structure/tree/master/Array/Degree:%20Easy)
 - [二分查找](https://github.com/ConnorTomato/Data-Structure/tree/master/Binary%20Search/Degree:%20Easy)
 - [广度优先搜索](https://github.com/ConnorTomato/Data-Structure/tree/master/Breadth%20First%20Search)
