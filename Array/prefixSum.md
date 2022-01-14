@@ -17,3 +17,4 @@
 #### [1074. 元素和为目标值的子矩阵数量](https://leetcode-cn.com/problems/number-of-submatrices-that-sum-to-target/)
 
 #### [1894. 找到需要补充粉笔的学生编号](https://leetcode-cn.com/problems/find-the-student-that-will-replace-the-chalk/) 前缀和 + 二分
+#### [2121. 相同元素的间隔之和](https://leetcode-cn.com/problems/intervals-between-identical-elements/) 前缀和 + 后缀和
