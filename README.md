@@ -1,6 +1,6 @@
 # LeetCode 题解仓库
 
-> 记录自己刷题的答案，配合 `Octotree` 插件，查询使用。
+> 记录自己刷题的答案，配合 `Octotree` 插件，搜索使用。
 
 `LeetCode_Tag`：依照 LeetCode 标签进行归类。
 
